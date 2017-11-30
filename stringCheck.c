@@ -20,15 +20,27 @@ int main(int argc, char** argv) {
     // found will record the position of myString when matched pString
     int found = 0;
     while (pString[pIndex] != '\0'){
+      // traversal the pString character, and each time, compare with myString
         while (myString[mIndex] != '\0'){
+          // if myString character matched pString character
+          // increase index of both
+          // till the end ò myString
+          // if no reaching the end, which means unmatched, reset myString index and increase pString index
+
           if (myString[mIndex] == pString[pIndex]){
             mIndex++;
             pIndex++;
-          } else break;
+          } else {
+            mIndex = 0;
+            pIndex++;
+            break;
+          }
         }
-      if (mIndex == strlen(myString)) found = pIndex;
+        // after checking match, if mIndex equals to myString length
+        // which means matched, record the position
+        // 'cause we continuously searching, "found" at last will record the final position those two matched
+      if (mIndex == strlen(myString)) found = pIndex - mIndex;
       mIndex = 0;
-      pIndex++;
     }
 
     // print the position of last found myString in pString
