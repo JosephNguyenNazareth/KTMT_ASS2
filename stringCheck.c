@@ -24,14 +24,12 @@ int main(int argc, char** argv) {
         while (myString[mIndex] != '\0'){
           // if myString character matched pString character
           // increase index of both
-          // till the end ò myString
-          // if no reaching the end, which means unmatched, reset myString index and increase pString index
-
+          // till the end of myString
+          // if not reaching the end, which means unmatched, reset myString index and increase pString index
           if (myString[mIndex] == pString[pIndex]){
             mIndex++;
             pIndex++;
           } else {
-            mIndex = 0;
             pIndex++;
             break;
           }
