@@ -111,8 +111,8 @@ main:
 
 # .L5 = if (mIndex == strlen(myString)) found = pIndex - mIndex;
 .L5:
-	lw	$16,20($fp) # myString
-	lw	$4,32($fp) # mIndex
+	lw	$16,20($fp) # mIndex
+	lw	$4,32($fp) # myString
 	jal	strlen
 	nop
 
