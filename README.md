@@ -14,9 +14,11 @@ mips-mti-elf-gcc -std=c11 -fomit-frame-pointer -S x.c<br>
  - Assignment2.pdf: our assignment requirement
  - README.md: some notice about the assignment
  - ktmt_11_code.c: contains the problem written in C language, this should not be changed instantly
- - ktmt_11_C2MIPS.asm: contains the problem written in MIPS language, which compiled from stringCheck.c, this cannot be run on MARS
- - ktmt_11_C2MIPS_backup.s: the same content with stringCheck.s; however, it contains comment more clearly than the above
+ - ktmt_11_code.s: contains the problem written in MIPS language, which compiled from stringCheck.c, this cannot be run on MARS
+ - ktmt_11_C2MIPS.asm: the same content with ktmt_11_code.s; however, it contains comment more clearly than the above
  - ktmt_11_MIPS_MARS.asm: modified compiled file in order to run on MARS MIPS
+ - ktmt_11_MIPS_Reorder.asm: reorder ktmt_11_MIPS_MARS instruction
+ - ktmt_11_MIPS_Hazard.asm: solve data hazard in ktmt_11_MIPS_MARS
  - ktmt_11_MIPS_final.asm: modified ktmt_11_MIPS_MARS to optimize it
  - stringCheck.jpg: flowchart algorithm image
  - stringCheck.eddx: flowchart algorithm in EDraw extension
