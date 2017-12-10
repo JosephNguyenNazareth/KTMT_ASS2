@@ -21,7 +21,7 @@
 main:
 	.frame	$fp,56,$31		# vars= 24, regs= 3/0, args= 16, gp= 0
 							# frame will create a space of 56-bit in stack, pointer to $31
-	.mask	0xc0010000,-4 	# for debugger, store variable at $16 and cost 4-bit lower
+	.mask	0xc0010010,-4 	# for debugger, store variable at $16 and cost 4-bit lower
 	.fmask	0x00000000,0
 	.set	noreorder # tell the assembler not to move(rearrange) our instruction
 	.set	nomacro # no macro to translate-no statement is more than one instruction
@@ -32,12 +32,12 @@ main:
 	move	$fp,$sp
 	sw	$4,56($fp)
 	sw	$5,60($fp)
-	li	$4,1000			# 0x3e8
+	li	$4,1001			# 0x3e8
 	jal	malloc
 	nop
 
 	sw	$2,28($fp)
-	li	$4,1000			# 0x3e8
+	li	$4,1001			# 0x3e8
 	jal	malloc
 	nop
 

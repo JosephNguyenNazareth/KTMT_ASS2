@@ -1,5 +1,5 @@
 .data
-	strIn: .space 1000
+	strIn: .space 1001
 	newline: .ascii "\n"
 .text
 
@@ -19,10 +19,10 @@ main:
 	sw	$a1,60($fp)
 	la 	$t1, newline
 
-	# create 1000-bit in $a0
+	# create 1001-bit in $a0
 	la 	$a0, strIn
 	lbu 	$t1, 0($t1)		#reorder
-	li	$a1,1000		# 0x3e8
+	li	$a1,1001		# 0x3e8
 	li 	$v0, 8
 	syscall
 
@@ -30,7 +30,7 @@ main:
 	sw	$a0,28($fp)
 	# get another string
 	la 	$a0, strIn
-	li	$a2,1000		# 0x3e8
+	li	$a2,1001		# 0x3e8
 	li 	$v0, 8		#reorder
 	addi 	$a0, $a0, 100
 
