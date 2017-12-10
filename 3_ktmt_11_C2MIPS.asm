@@ -41,14 +41,14 @@ main:
 	sw	$4,56($fp)
 	sw	$5,60($fp)
 	# create 1001-bit in $a0
-	li	$4,1001			# 0x3e8 #create array of char in $v0
+	li	$4,1000			# 0x3e8 #create array of char in $v0
 	jal	malloc
 	nop
 
 	# after getting input from screen, store it to $fp + 28
 	sw	$2,28($fp)
 	# get another string
-	li	$4,1001			# 0x3e8
+	li	$4,1000			# 0x3e8
 	jal	malloc
 	nop
 
