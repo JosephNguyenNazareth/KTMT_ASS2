@@ -41,14 +41,14 @@ main:
 	bne	$v1,$v0,.L4 # if (myString[mIndex] != pString[pIndex])
 	nop
 
-	addiu	$t3,$t3,1 # increase
-	addiu	$t2,$t2,1
+	addiu	$t3,$t3,1 # increase mIndex
+	addiu	$t2,$t2,1 # increase pIndex
 	b	.L3
 	nop
 # .L4 = else
 .L4:
 	addiu	$t2,$t2,1 # then increase pIndex to 1 unit
-    add     $v0,$t2, $zero
+    add     $v0,$t2,$zero
 	b	.L5
 	nop
 # .L3 = while (myString[mIndex] != '\0')
@@ -60,26 +60,20 @@ main:
 	nop
 # .L5 = if (mIndex == strlen(myString)) found = pIndex - mIndex;
 .L5:
-	lw	$a0,32($sp) # myString
-
 	bne	$t3,$v0,.L7 # compare mIndex ($s0) and strlen(myString) ($v0)
 	nop
-
 	subu	$t4,$t2,$t3 # pIndex - mIndex
-
 # .L7 = mIndex = 0
 .L7:
 	add     $t3, $zero, $zero
 # .L2 = while (pString[index] != '\0')
 .L2:
 	addu	$v0,$s1,$t2 # increase pString to pString + index
-
 	lbu	$v0,0($v0)
 	nop
 	nop
 	bne	$v0,$0,.L3 # if our pString character not equals to zero
 	nop
-
 	# print found variable
 	li 	$v0, 1
 	la 	$a0, ($t4)
