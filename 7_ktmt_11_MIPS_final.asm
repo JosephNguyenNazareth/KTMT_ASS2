@@ -47,28 +47,36 @@ main:
 	lw	$v0,20($sp) # load myString and its mIndex
 	lw	$v1,32($sp)
 	lw	$a0,28($sp)
+	nop
+	nop
 	addu	$v0,$v1,$v0
 
 	lbu	$v1,0($v0) # assign it to $v1
 
 	lw	$v0,16($sp) # load pString and its pIndex
 	nop
+	nop
 	addu	$v0,$a0,$v0
 
 	lbu	$v0,0($v0) # assign it to $v0
 	nop
+	nop
 	bne	$v1,$v0,.L4 # if (myString[mIndex] != pString[pIndex])
 	nop
 
-	lw	$v0,20($sp) # mIndex increase 1 unit # load it from $fp
+	lw	$v0,20($sp) # mIndex increase 1 unit # load it from $sp
+	nop
 	nop
 	addiu	$v0,$v0,1 # increase
-
+	nop
+	nop
 	sw	$v0,20($sp) # store back to $sp
 	lw	$v0,16($sp) # the same with pIndex
 	nop
+	nop
 	addiu	$v0,$v0,1
-
+	nop
+	nop
 	sw	$v0,16($sp)
 	b	.L3
 	nop
@@ -76,8 +84,10 @@ main:
 .L4:
 	lw	$v0,16($sp) # load from $sp pIndex
 	nop
+	nop
 	addiu	$v0,$v0,1 # then increase it to 1 unit
-
+	nop
+	nop
 	sw	$v0,16($sp) # store it again back to $sp
 	b	.L5
 	nop
@@ -86,9 +96,11 @@ main:
 	lw	$v0,20($sp) # mIndex
 	lw	$v1,32($sp) # myString
 	nop
+	nop
 	addu	$v1,$v1,$v0 # increase myString to myString + mIndex
 
 	lbu	$v1,0($v1)
+	nop
 	nop
 	bne	$v1,$t1,.L6 # if myString character not equals to zero
 	nop
@@ -102,8 +114,10 @@ main:
 	lw	$v0,20($sp) # load mIndex
 	lw	$v1,16($sp) # load pIndex
 	nop
+	nop
 	subu	$v0,$v1,$v0 # pIndex - mIndex
-
+	nop
+	nop
 	sw	$v0,24($sp) # store to found variable address
 
 # .L7 = mIndex = 0
@@ -114,9 +128,11 @@ main:
 	lw	$v0,16($sp) # pIndex
 	lw	$v1,28($sp) # pString
 	nop
+	nop
 	addu	$v0,$v1,$v0 # increase pString to pString + index
 
 	lbu	$v0,0($v0)
+	nop
 	nop
 	bne	$v0,$0,.L3 # if our pString character not equals to zero
 	nop
@@ -124,8 +140,8 @@ main:
 	# print found variable
 	lw	$a1,24($sp)
 	li 	$v0, 1
+	nop
 	la 	$a0, ($a1)
-
 	syscall
 
 	# restore memmory

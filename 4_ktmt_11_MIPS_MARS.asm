@@ -33,7 +33,7 @@ main:
 	sw	$a0,28($fp)
 	# get another string
 	la 	$a0, strIn
-	addi $a0, $a0, 100
+	addi $a0, $a0, 1001
 	li	$a2,1001			# 0x3e8
 	li 	$v0, 8
 	syscall
