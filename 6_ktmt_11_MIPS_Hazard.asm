@@ -1,5 +1,5 @@
 .data
-	strIn: .space 1001
+	strIn: .space 1002
 	newline: .ascii "\n"
 .text
 
@@ -20,9 +20,9 @@ main:
 	la 	$t1, newline
 	lbu $t1, 0($t1)
 
-	# create 1001-bit in $a0
+	# create 1002-bit in $a0
 	la 	$a0, strIn
-	li	$a1,1001		# 0x3e8
+	li	$a1,1002		# 0x3e8
 	li 	$v0, 8
 	syscall
 
@@ -32,8 +32,8 @@ main:
 	la 	$a0, strIn
 	nop
 	nop
-	addi 	$a0, $a0, 1001
-	li	$a2,1001		# 0x3e8
+	addi 	$a0, $a0, 1002
+	li	$a2,1002		# 0x3e8
 	li 	$v0, 8
 	syscall
 
