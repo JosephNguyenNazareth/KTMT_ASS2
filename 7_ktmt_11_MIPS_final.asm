@@ -18,7 +18,7 @@ main:
 	sw	$a1,60($sp)
 	la 	$t1, newline
 
-	# create 1001-bit in $a0
+	# create 1002-bit in $a0
 	la 	$a0, strIn
 	lbu 	$t1, 0($t1)
 	li	$a1,1002			# 0x3e8

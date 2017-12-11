@@ -23,7 +23,7 @@ main:
 	# and store the address of $fp + 56 to our $ra
 	.frame	$fp,56,$31		# vars= 24, regs= 3/0, args= 16, gp= 0
 							# frame will create a space of 56-bit in stack, pointer to $31, (heap data)
-	.mask	0xc0010010,-4 	# for debugger, store variable at $16 and cost 4-bit lower
+	.mask	0xc0010020,-4 	# for debugger, store variable at $16 and cost 4-bit lower
 	.fmask	0x00000000,0
 	.set	noreorder # tell the assembler not to move(rearrange) our instruction
 	.set	nomacro # no macro to translate-no statement is more than one instruction
@@ -40,7 +40,7 @@ main:
 	move	$fp,$sp
 	sw	$4,56($fp)
 	sw	$5,60($fp)
-	# create 1001-bit in $a0
+	# create 1002-bit in $a0
 	li	$4,1000			# 0x3e8 #create array of char in $v0
 	jal	malloc
 	nop
